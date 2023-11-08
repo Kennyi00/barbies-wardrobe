@@ -1,12 +1,13 @@
 console.log('App is connected');
 
 // Protagonist of our application
+// Barbie Was Made
 const barbie = {
     name: 'Barbie',
     wardrobe: [],
     wallet: 0
 }
-
+// Career Constructor
 class Career {
     constructor(name, description, income, id){
         this.name = name;
@@ -15,7 +16,7 @@ class Career {
         this.id = id;
     }
 }
-
+// list of careers for the constructor
 const careerDescriptions = [
     {
         name: 'lawyer',
@@ -34,6 +35,7 @@ const careerDescriptions = [
         description: 'talk about stuff on social media and people say wow and i get paid'
     }
 ]
+//Career Incomes
 const careerIncomes = [
  8501,
  18501,
@@ -45,7 +47,7 @@ const careerIncomes = [
 ];
 const careers = [];
 
-
+// Career Income Randomizer
 const randomization = (limit) => {
  return Math.floor(Math.random() * limit)
 }
@@ -57,7 +59,7 @@ for (let i = 10 ; i > 0; i--){
  careers.push(new Career(job.name, job.description, income, `${job.name}-${income}` ))
 }
 
-
+//Career Randomizer
 barbie.career = careers[randomization(careers.length)]
 
 class Clothing {
@@ -72,7 +74,7 @@ class Clothing {
 }
 
 const birkin = new Clothing('Birkin Bag', 'Hermes', 'purple', 'bag', 'lg', 15470 )
-
+const redBottoms = new Clothing('Red Bottoms', 'Christian Loboutin', 'black', 'shoes', '6', 3000 )
 
 
 
@@ -131,3 +133,17 @@ workButton.addEventListener('click', ()=>{
     barbie.render();
 })
 
+const rbButton = document.getElementById('red-bottoms')
+
+rbButton.addEventListener('click', () => {
+    if (barbie.wallet >= redBottoms.price) {
+        barbie.wardrobe.push(redBottoms);
+        barbie.wallet -= redBottoms.price;
+        barbie.render();
+        // WE updated the wardrobe that belongs to barbie so the object was changed
+        // the object control the information that is visible to us on the screen
+        // I want to re-render the content so that i can see the updated information in the browser
+    } else {
+        alert('Stop trippin you know you aint got it like that');
+    }
+})

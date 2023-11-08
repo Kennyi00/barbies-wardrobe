@@ -49,5 +49,9 @@ img {
   background: #A03ACC;
   border-radius: 15px;
   position: relative;
-};
+}
 
+#red-bottoms:hover{
+  background-color: red;
+  color:whitesmoke;
+}
